@@ -23,6 +23,7 @@ int main(){
     L.elem[2] = 3;
     L.elem[3] = 4;
     L.elem[4] = 5;
+    L.elem[4] = 5;
     printList(L);
     return 0;
 }
