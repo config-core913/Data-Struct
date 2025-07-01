@@ -59,24 +59,29 @@ int LocateElem(SqList L,ElemType element){
     }
     return 0;
 } 
+//查找顺序表钟的最小值
+ElemType findsmall(SqList L){
+    int i = 0;
+    ElemType small = L.data[i];
+    
+
+}
 int main(){
     SqList L;
     InitList(L);
-    InsertList(L,1,10);
-    InsertList(L,1,9);
-    InsertList(L,1,8);
-    InsertList(L,1,7);
-    InsertList(L,1,6);
-    InsertList(L,1,5);
-    InsertList(L,1,4);
-    InsertList(L,1,3);
+    L.length = 10;
 
-    ElemType element;
-    DeleteList(L,5,element);
-    cout << "删除的元素是：" << element << endl;
+    L.data[0] = 10;
+    L.data[1] = 5;
+    L.data[2] = 2;
+    L.data[3] = 7;
+    L.data[4] = 8;
+    L.data[5] = 9;
+    L.data[6] = 45;
+    L.data[7] = 100;
+    L.data[8] = 1;
+    L.data[9] = 78;
 
-    int findElem = LocateElem(L,9);
-    cout << "元素9在顺序表的第" << findElem + 1 << "个位置" << endl;
 
     PrintList(L);
     //free(L.data);
