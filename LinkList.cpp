@@ -12,6 +12,22 @@ bool Init_LinkList(LinkList &L){
     L->next = NULL;
     return true;
 }
+//头插法
+void head_insertLinkList(LinkList &L){
+    L = new LNode;
+    L->next = NULL;
+    ElemType x;
+    cout << "请输入: " << endl;
+    cin >> x;
+    while(x != 9999){
+        LinkList s = new LNode;
+        s->data = x;
+        s->next = L->next;
+        L->next = s;
+        cin >> x;
+    }
+
+}
 //尾插法
 void tail_insertLinkList(LinkList &L){
     L = new LNode;
@@ -39,9 +55,52 @@ void PrintList(LinkList L){
     }
     cout << endl;
 }
+//插入节点
+bool insertList(LinkList &L,int i,ElemType element){
+    if(i < 1){
+        return false;
+    }
+    LinkList p = L;
+    int j = 0;
+    while(p != NULL && j < i-1){
+        p = p->next;
+        j++;
+    }
+    if(p == NULL){
+        return false;
+    }
+    LinkList s = new LNode;
+    s->data = element;
+    s->next = p->next;
+    p->next = s;
+    return true;
+}
+//删除指定节点
+bool DeleteLinkList(LinkList &L,int i,ElemType &element){
+    if(i < 1){
+        return false;
+    }
+    int j = 0;
+    LinkList p = L;
+    while( p != NULL && j < i-1){
+        p = p->next;
+        j++;
+    }
+    if(p == NULL && p->next == NULL){
+        return false;
+    }
+    LinkList q = p->next;
+    element = q->data;
+    p->next = q->next;
+    delete q;
+    return true;
+}
 int main(){
     LinkList L;
-    tail_insertLinkList(L);
+    // tail_insertLinkList(L);
+    head_insertLinkList(L);
+    
+
     PrintList(L);
     return 0;
 }
