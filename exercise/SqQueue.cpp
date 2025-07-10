@@ -20,6 +20,6 @@ bool InitQueue(SqQueue &Q){
 int main(){
     SqQueue Q;
     InitQueue(Q);
-    
+    cout << "   \n\n" << endl;
     return 0;
 }
