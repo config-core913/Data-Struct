@@ -26,16 +26,38 @@ bool EnQueue(LinkQueue &Q,ElemType element){
     return true;
 }
 //链队列出队
-bool DeQueue(LinkQueue &Q,ElemType element){
+bool DeQueue(LinkQueue &Q,ElemType &element){
     if(Q.front == Q.rear){
         return false;
     }
-    QNode *p = Q.front;
-    
+    QNode *p = Q.front->next;
+    element = p->data;
+    Q.front->next = p->next;
+    if(Q.rear == p){
+        Q.rear = Q.front;
+    }
+    delete p;
+    return true;
 }
+//取队头元素
+ElemType GetHead(LinkQueue Q){
+    if(Q.front != Q.rear){
+        return Q.front->next->data;
+    }
+    return 0;
+}
+
 int main(){
     LinkQueue Q;
+    InitLinkQueue(Q);
 
+    EnQueue(Q,10);
+    EnQueue(Q,2);
+    EnQueue(Q,3);
+    EnQueue(Q,4);
+    EnQueue(Q,5);
 
+    int test = GetHead(Q);
+    cout << test << endl;
     return 0;
 }
