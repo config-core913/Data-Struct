@@ -55,7 +55,7 @@ int main(){
     EnQueue(Q,4);
     EnQueue(Q,5);
     EnQueue(Q,6);
-
+    
     ElemType test = GetHead(Q);
     cout << test << endl;
     return 0;
