@@ -25,6 +25,14 @@ bool EnQueue(LinkQueue &Q,ElemType element){
     Q.rear = p;
     return true;
 }
+//链队列出队
+bool DeQueue(LinkQueue &Q,ElemType element){
+    if(Q.front == Q.rear){
+        return false;
+    }
+    QNode *p = Q.front;
+    
+}
 int main(){
     LinkQueue Q;
 
