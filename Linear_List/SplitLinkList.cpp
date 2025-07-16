@@ -32,7 +32,7 @@ void Print(LinkList L){
     cout << endl;
 }
 //拆分链表
-LinkList SplitLinkList(LinkList &A,LinkList &B,LinkList &C){
+void SplitLinkList(LinkList &A,LinkList &B,LinkList &C){
     LinkList pA = A->next;
     A->next = NULL;
     LinkList pB = B;
