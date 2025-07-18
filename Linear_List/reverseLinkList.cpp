@@ -33,11 +33,20 @@ void Print(LinkList L){
 }
 //链表逆置
 void reverseLinkList(LinkList &L){
-    LinkList p,q,r;
-    p = L;
-    q = p->next;
-    r = q->next;
+    if(L == NULL || L->next == NULL) return;  // 空链表或只有头节点
     
+    LinkList pre, curr, next;
+    pre = NULL;
+    curr = L->next;     // 从第一个节点开始
+    L->next = NULL;     // 头节点先指向NULL
+    
+    while(curr != NULL){
+        next = curr->next;  // 保存下一个节点
+        curr->next = pre;   // 逆转当前节点指针
+        pre = curr;         // 移动pre指针
+        curr = next;        // 移动curr指针
+    }
+    L->next = pre;
 }
 int main(){
     LinkList L;
@@ -45,6 +54,8 @@ int main(){
     Insert_tail(L);
     Print(L);
 
-    
+    reverseLinkList(L);
+    cout << "逆置后链表为：" << endl;
+    Print(L);
     return 0;
 }
