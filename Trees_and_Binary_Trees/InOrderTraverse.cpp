@@ -78,6 +78,7 @@ void InOrderTraverse_F(BiTree T){
 }
 int main(){
     BiTree T;
+    cout << "数据元素：";
     CreateBiTree(T);
     cout << "递归遍历：";
     InOrderTraverse(T);
