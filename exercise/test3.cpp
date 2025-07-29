@@ -93,6 +93,7 @@ void Create_DG(ALGraph &G){
         p->adjvex = j;
         p->nextarc = G.vertices[i].firstarc;
         G.vertices[i].firstarc = p;
+        
     }
 }
 //邻接表深度优先遍历
