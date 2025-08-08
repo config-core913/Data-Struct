@@ -1,7 +1,6 @@
 #include<iostream>
 using namespace std;
 
-//链表逆置练习
 typedef int ElemType;
 typedef struct LNode{
     ElemType data;
@@ -27,30 +26,63 @@ void Insert_tail(LinkList &L){
 void PrintList(LinkList L){
     LinkList p = L->next;
     while(p){
-        cout << p->data << " ";
+        cout << p->data  << " ";
         p = p->next;
     }
     cout << endl;
 }
 //链表逆置
-LinkList reverge(LinkList L){//头插法
-    LinkList p,r;
-    p = L->next;
+void reverse1(LinkList &L){
+    // LinkList pre, curr, next;
+    // pre = NULL;
+    // curr = L->next;     // 从第一个节点开始
+    // L->next = NULL; 
+    // while(curr != NULL){
+    //     next = curr->next;
+    //     curr->next = pre;
+    //     pre = curr;
+    //     curr = next;
+    // }
+    // L->next = pre;
+    LinkList curr,pre,next;
+    pre = NULL;
+    curr = L->next;
     L->next = NULL;
-    while(p){
-        r = p->next;
-        p->next = L->next;
-        L->next = p;
-        p = r;
+    while(curr){
+        next = curr->next;
+        curr->next = pre;
+        pre = curr;
+        curr = next;
     }
-    return L;
+    L->next = pre;
+}
+void reverse2(LinkList &L){
+    // LinkList curr,next;
+    // curr = L->next;
+    // L->next = NULL;
+    // while(curr){    //注意L指针的变化，L.next指向的节点一直在变，但是始终指向修改后的第一个结点
+    //     next = curr->next;
+    //     curr->next = L->next;
+    //     L->next = curr;
+    //     curr = next;
+    // }
+    LinkList curr,next;
+    curr = L->next;
+    L->next = NULL;
+    while(curr){
+        next = curr->next;
+        curr->next = L->next;
+        L->next = curr;
+        curr = next;
+    }
 }
 int main(){
     LinkList L;
     cout << "请输入链表元素：";
     Insert_tail(L);
     PrintList(L);
-    reverge(L);
+
+    reverse2(L);
     cout << "链表逆置后：";
     PrintList(L);
     return 0;
