@@ -43,17 +43,27 @@ void InOrderTraverse(BiTree T){
 }
 //二查排序树，中序遍历从小到大--->从大到小
 void TransFormBST(BiTree &T){
-    if(T == NULL){
-        return;
-    }
+    // if(T == NULL){
+    //     return;
+    // }
 
-    TransFormBST(T->lchild);   // 递归处理左子树
-    TransFormBST(T->rchild);  // 递归处理右子树
+    // TransFormBST(T->lchild);   // 递归处理左子树
+    // TransFormBST(T->rchild);  // 递归处理右子树
     
-    // 处理当前节点：交换左右子树
-    BiTree temp = T->lchild;
-    T->lchild  = T->rchild;
-    T->rchild = temp;
+    // // 处理当前节点：交换左右子树
+    // BiTree temp = T->lchild;
+    // T->lchild  = T->rchild;
+    // T->rchild = temp;
+
+    if(!T){
+        return;
+    }else{
+        BiTree temp = T->lchild;
+        T->lchild = T->rchild;
+        T->rchild = temp;
+    }
+    TransFormBST(T->lchild);
+    TransFormBST(T->rchild);
 }
 int main(){
     BiTree T;
