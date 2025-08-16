@@ -40,8 +40,10 @@ int height(BiTree T){
 bool IsBalance(BiTree T){
     if(!T){
         return true;
+    }else if(abs(height(T->lchild) - height(T->rchild)) > 1){
+        return false;
     }else{
-        
+        return IsBalance(T->lchild) && IsBalance(T->rchild);
     }
 }
 int main(){
@@ -52,8 +54,13 @@ int main(){
     InOrderTraverse(T);
     //计算深度
     int h = height(T);
-    cout << endl << "二叉树的深度为：" << h;
+    cout << endl << "二叉树的深度为：" << h << endl;
 
-
+    bool test = IsBalance(T);
+    if(test){
+        cout << "该二叉树是平衡二叉树！" << endl;
+    }else{
+        cout << "该二叉树不是平衡二叉树！" << endl;
+    }
     return 0;
 }
