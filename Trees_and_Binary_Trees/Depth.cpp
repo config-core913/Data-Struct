@@ -42,6 +42,13 @@ int Depth(BiTree T){
         }
     }
 }
+// int height(BiTree T){
+//     if(!T){
+//         return 0;
+//     }else{
+//         return max(height(T->lchild),height(T->rchild)) + 1;// 树的高度 = 1 (根节点本身) + 左右子树中更高的那个的高度
+//     }
+// }
 int main(){
     BiTree T;
     CreateBiTree(T);
