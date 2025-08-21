@@ -26,6 +26,10 @@ void rotate(int A[],int length,int k){
     reverse(A,0,length);
     reverse(A,0,k);
     reverse(A,k,length);
+    
+    // reverse(nums.begin(),nums.end());
+    //     reverse(nums.begin(),nums.begin() + k);
+    //     reverse(nums.begin() + k,nums.end());
 }
 int main(){
     int A[10] = {1,2,3,4,5,6,7,8,9,10};
