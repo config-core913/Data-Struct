@@ -22,7 +22,6 @@ void rotate(int A[],int length,int k){
     reverse(A,0,length - k);
     reverse(A,length - k,length);
     reverse(A,0,length);
-    
 }
 int main(){
     int A[10] = {1,2,3,4,5,6,7,8,9,10};
