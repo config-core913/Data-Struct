@@ -17,9 +17,12 @@ void reverse(int A[],int begin,int end){
 }
 
 void rotate(int A[],int length,int k){
-    reverse(A,0,length);
+    k = k % length;
+    if(k == 0) return;
     reverse(A,0,length - k);
     reverse(A,length - k,length);
+    reverse(A,0,length);
+    
 }
 int main(){
     int A[10] = {1,2,3,4,5,6,7,8,9,10};
@@ -29,8 +32,8 @@ int main(){
         cout << A[i] << " ";
     }
     cout << endl;
-    
-    rotate(A,length,3);
+
+    rotate(A,length,1);
     cout << "移动后：";
     for(int i = 0;i < length;i++){
         cout << A[i] << " ";
