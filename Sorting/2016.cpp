@@ -5,11 +5,10 @@ typedef struct node{
 	int key;
 	struct node *lchild,*rchild;
 }BinNode,*BiTree;
+
 int main(){
 	
 
-//测试
-	//一次测试
 	return 0;
 }
 
