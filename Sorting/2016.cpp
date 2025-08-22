@@ -1,12 +1,12 @@
 #include<iostream>
 using namespace std;
-
+//2016年第二大题
+typedef struct node{
+	int key;
+	struct node *lchild,*rchild;
+}BinNode,*BiTree;
 int main(){
 	
-	
-	cout << "这是一个测试" << endl;
-	cout << "这个也是一个测试" << endl;
-	cout << "这还是一个测试" << endl;
 	return 0;
 }
 
