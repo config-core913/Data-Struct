@@ -46,7 +46,7 @@ void ReSortArray(int a[],int lengh){
             i++; 
             j--;
         }
-    }
+    }//新的编译器注释
 }
 int main(){
     int a[] = {-1,10,-2,2,-31,65,0,0,-9,50,-40};

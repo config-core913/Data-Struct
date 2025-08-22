@@ -11,13 +11,13 @@ void reverse(int A[],int begin,int end){
         A[i] = A[j];
         A[j] = temp;
         i++;
-        if(i == j) break;
+        if(i == j) break;      
         j--;
     }
 }
-
+ 
 void rotate(int A[],int length,int k){
-    k = k % length;
+    k = k % length;  
     if(k == 0) return;
     // reverse(A,0,length - k);
     // reverse(A,length - k,length);
