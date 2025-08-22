@@ -7,6 +7,8 @@ typedef struct node{
 }BinNode,*BiTree;
 int main(){
 	
+
+	//一次测试
 	return 0;
 }
 
