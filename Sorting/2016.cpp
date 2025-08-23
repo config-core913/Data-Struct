@@ -34,14 +34,33 @@ void InOrderTraverse(BiTree T){
 }
 //二叉排序树中查找结点
 BiTree findNode(BiTree T,int key){
-	while(T != NULL && T->key != key){
-		if(T->key > key){
-			T = T->lchild;
-		}else{
-			T = T->rchild;
-		}
-	}
-	return T;
+	// while(T != NULL && T->key != key){
+	// 	if(T->key > key){
+	// 		T = T->lchild;
+	// 	}else{
+	// 		T = T->rchild;
+	// 	}
+	// }
+	// return T;
+
+
+    // 递归的终止条件1: 树为空，查找失败
+    if (T == NULL) {
+        return NULL;
+    }
+    // 递归的终止条件2: 找到了匹配的节点
+    if (key == T->key) {
+        return T;
+    } 
+    // 递归调用：根据比较结果在相应的子树中继续查找
+    else if (key < T->key) {
+        // key 小于当前节点值，向左子树递归查找
+        return findNode(T->lchild, key);
+    } 
+    else { // key > T->key
+        // key 大于当前节点值，向右子树递归查找
+        return findNode(T->rchild, key);
+    }
 }
 
 int main(){
@@ -57,7 +76,7 @@ int main(){
     InOrderTraverse(T);
     cout << endl; 
 
-    BiTree t = findNode(T,5);
+    BiTree t = findNode(T,7);
     cout << t->key << endl;
 	return 0;
 }
