@@ -1,3 +1,4 @@
+#include <algorithm>
 #include<iostream>
 using namespace std;
 //2016年第二大题
@@ -31,6 +32,18 @@ void InOrderTraverse(BiTree T){
 		InOrderTraverse(T->rchild);
 	}
 }
+//二叉排序树中查找结点
+BiTree findNode(BiTree T,int key){
+	while(T != NULL && T->key != key){
+		if(T->key > key){
+			T = T->lchild;
+		}else{
+			T = T->rchild;
+		}
+	}
+	return T;
+}
+
 int main(){
 
 	BiTree T = NULL; // 初始化一个空树
@@ -44,7 +57,8 @@ int main(){
     InOrderTraverse(T);
     cout << endl; 
 
-    
+    BiTree t = findNode(T,5);
+    cout << t->key << endl;
 	return 0;
 }
 
