@@ -44,8 +44,11 @@ void InOrderTraverse(BiTree T){
 }	
 //计算叶子结点数量
 int LeafCount(BiTree T){
-	if(T){
-		
+	if(!T) return 0;
+	if(T->lchild == NULL && T->rchild == NULL){
+		return 1;
+	}else{
+		return LeafCount(T->lchild)+LeafCount(T->rchild);
 	}
 }
 int main(){
@@ -53,7 +56,7 @@ int main(){
 	cout << "请输入二叉排序树序列：";
 	Create(T);
 	InOrderTraverse(T);
-
+	cout << endl;
 	cout << "叶子节点数量：";
 	int count = LeafCount(T);
 	cout << count << endl;
