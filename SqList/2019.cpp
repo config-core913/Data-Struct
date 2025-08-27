@@ -10,5 +10,7 @@ void Insert(ElemType D[],ElemType element,int i,){
 }
 int main(){
 
+
+
 	return 0;
 }
