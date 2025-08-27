@@ -40,6 +40,8 @@ int main(){
     }
     cout << endl;
 
+
+    //test
     rotate(A,length,2);
     cout << "移动后：";
     for(int i = 0;i < length;i++){
