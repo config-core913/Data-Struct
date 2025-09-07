@@ -31,22 +31,16 @@ void PrintList(LinkList L){
 	}
 	cout << endl;
 }
+//插入元素后依然有序
 void Insert(LinkList L,ElemType element){
-	LinkList pre,curr;
-	pre = L->next;
-	curr = L->next->next;
-	while(curr){
-		if(curr->data >= element && pre->data < element){
-			break;
-		}
-		pre = pre->next;
-		curr = curr->next;
+	LinkList p = L;
+	while(p->next != NULL && p->next->data < element){
+		p = p->next;
 	}
 	LinkList s = new LNode;
 	s->data = element;
-	s->next = pre->next;
-	pre->next = s;
-
+	s->next = p->next;
+	p->next = s;
 }
 int main(){
 	LinkList L;
