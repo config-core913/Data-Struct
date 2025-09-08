@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-
+//将一条链表按正负值差分成两条链表
 typedef int ElemType;
 typedef struct LNode{
     ElemType data;
