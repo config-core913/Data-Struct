@@ -38,18 +38,21 @@ bool Search_k(LinkList L,int k){
 		p = p->next;
 		count++;
 	}
-	if(k > count) return 0;
-	int j = 0;
+	if(k > count) return 0;//元素个数小于k
+	int j = 1;
 	LinkList q = L->next;
-	while(j < count){
+	while(j < count - k + 1){
 		q = q->next;
 		j++;
 	}
-	
+	cout << "倒数第" << k << "个元素为：" << q->data << " ";
+	return 1;
 }
 int main(){
 	LinkList L;
+	cout << "请输入链表元素：";
 	Tail_head(L);
-	
+	PrintList(L);
+	Search_k(L, 3);
 	return 0;
 }
